@@ -13,13 +13,13 @@ $sale = [
     new Sala4D("nome5",104,"grande5",["vibration"]),
 ];
 $movies = [
-    new Movie("title1","genre1","1:59","director1",["actor1","actor1","actor1"]),
+    new Movie("title1","genre1","1:50","director1",["actor1","actor1","actor1"]),
     new Movie("title2","genre2","1:40","director2",["actor2","actor2","actor2"]),
     new Movie("title3","genre3","1:40","director3",["actor3","actor3","actor3"]),
     new Movie("title4","genre4","1:40","director4",["actor4","actor4","actor4"]),
 ];
 $shows = [
-    new Show($movies[0],"28/02/2022","16:31",$sale[0]),
+    new Show($movies[0],"28/02/2022","23:31",$sale[0]),
     new Show($movies[1],"27/02/2022","10:31",$sale[1]),
     new Show($movies[2],"21/02/2022","11:31",$sale[2]),
     new Show($movies[1],"26/02/2022","12:31",$sale[3]),
@@ -73,14 +73,25 @@ foreach ($shows as $key ) {
 }
 
 $arrayMovieLength = explode(":",$movieLength);
-$arrayoraFinale = explode(":",$oraFinale);
+$arrayOraFinale = explode(":",$oraFinale);
 
-$arrayoraFinale[0] = $arrayoraFinale[0]+$arrayMovieLength[0];
-$arrayoraFinale[1] = $arrayoraFinale[1]+$arrayMovieLength[1];
+$arrayOraFinale[0] = $arrayOraFinale[0]+$arrayMovieLength[0];
+$arrayOraFinale[1] = $arrayOraFinale[1]+$arrayMovieLength[1];
 
-if ($arrayoraFinale[1]>59) {
-    $arrayoraFinale[0] = $arrayoraFinale[0]+1;
-    $arrayoraFinale[1] = $arrayoraFinale[1]-60;
+if($arrayOraFinale[0] == 24){
+    $arrayOraFinale[0] = 0;
 }
 
-var_dump(implode(":",$arrayoraFinale));
+if ($arrayOraFinale[1]>59) {
+    $arrayOraFinale[0] = $arrayOraFinale[0]+1;
+    $arrayOraFinale[1] = $arrayOraFinale[1]-60;
+}
+
+// 23:31
+// 1:50
+// 24:81
+    // 00:81
+    // 1:21
+// 1:21
+
+var_dump(implode(":",$arrayOraFinale));
