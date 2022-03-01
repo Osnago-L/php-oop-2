@@ -13,4 +13,15 @@ class Show
         $this->time = $_time;
         $this->sala = $_sala;
     }
+
+    public function getMovie(){
+        return $this->movie;
+    }
+
+    public function getDate(){
+        return $this->date;
+    }
+    public function getTime(){
+        return $this->time;
+    }
 };

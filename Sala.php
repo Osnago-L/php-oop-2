@@ -16,4 +16,8 @@ class Sala
     public function set3d($_is_3d){
         $this->is_3d = $_is_3d;
     }
+
+    public function getCapacity(){
+        return $this->capacity;
+    }
 };
